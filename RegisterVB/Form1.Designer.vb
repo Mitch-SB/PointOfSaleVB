@@ -23,197 +23,433 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.groupBoxPad = New System.Windows.Forms.GroupBox()
-        Me.btnQty = New System.Windows.Forms.Button()
-        Me.btnEnter = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btn0 = New System.Windows.Forms.Button()
-        Me.btn3 = New System.Windows.Forms.Button()
-        Me.btn2 = New System.Windows.Forms.Button()
-        Me.btn1 = New System.Windows.Forms.Button()
-        Me.btn6 = New System.Windows.Forms.Button()
-        Me.btn5 = New System.Windows.Forms.Button()
-        Me.btn4 = New System.Windows.Forms.Button()
-        Me.btn9 = New System.Windows.Forms.Button()
-        Me.btn8 = New System.Windows.Forms.Button()
-        Me.btn7 = New System.Windows.Forms.Button()
+        Me.BtnQty = New System.Windows.Forms.Button()
+        Me.BtnEnter = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.BtnClear = New System.Windows.Forms.Button()
+        Me.Btn0 = New System.Windows.Forms.Button()
+        Me.Btn3 = New System.Windows.Forms.Button()
+        Me.Btn2 = New System.Windows.Forms.Button()
+        Me.Btn1 = New System.Windows.Forms.Button()
+        Me.Btn6 = New System.Windows.Forms.Button()
+        Me.Btn5 = New System.Windows.Forms.Button()
+        Me.Btn4 = New System.Windows.Forms.Button()
+        Me.Btn9 = New System.Windows.Forms.Button()
+        Me.Btn8 = New System.Windows.Forms.Button()
+        Me.Btn7 = New System.Windows.Forms.Button()
+        Me.label1 = New System.Windows.Forms.Label()
+        Me.TxtTotal = New System.Windows.Forms.TextBox()
+        Me.lblQty = New System.Windows.Forms.Label()
+        Me.txtInput = New System.Windows.Forms.TextBox()
+        Me.listViewGrocery = New System.Windows.Forms.ListView()
+        Me.groupBoxMain = New System.Windows.Forms.GroupBox()
+        Me.BtnLogOff = New System.Windows.Forms.Button()
+        Me.BtnEnterCoupon = New System.Windows.Forms.Button()
+        Me.BtnPay = New System.Windows.Forms.Button()
+        Me.TxtCashOut = New System.Windows.Forms.TextBox()
+        Me.BtnBack = New System.Windows.Forms.Button()
+        Me.BtnLock = New System.Windows.Forms.Button()
+        Me.BtnCash = New System.Windows.Forms.Button()
+        Me.BtnCoupon = New System.Windows.Forms.Button()
+        Me.BtnVoid = New System.Windows.Forms.Button()
+        Me.BtnRegOptions = New System.Windows.Forms.Button()
+        Me.BtnTender = New System.Windows.Forms.Button()
+        Me.BtnEFT = New System.Windows.Forms.Button()
         Me.groupBoxPad.SuspendLayout()
+        Me.groupBoxMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'groupBoxPad
         '
-        Me.groupBoxPad.Controls.Add(Me.btnQty)
-        Me.groupBoxPad.Controls.Add(Me.btnEnter)
-        Me.groupBoxPad.Controls.Add(Me.btnDelete)
-        Me.groupBoxPad.Controls.Add(Me.btnClear)
-        Me.groupBoxPad.Controls.Add(Me.btn0)
-        Me.groupBoxPad.Controls.Add(Me.btn3)
-        Me.groupBoxPad.Controls.Add(Me.btn2)
-        Me.groupBoxPad.Controls.Add(Me.btn1)
-        Me.groupBoxPad.Controls.Add(Me.btn6)
-        Me.groupBoxPad.Controls.Add(Me.btn5)
-        Me.groupBoxPad.Controls.Add(Me.btn4)
-        Me.groupBoxPad.Controls.Add(Me.btn9)
-        Me.groupBoxPad.Controls.Add(Me.btn8)
-        Me.groupBoxPad.Controls.Add(Me.btn7)
-        Me.groupBoxPad.Location = New System.Drawing.Point(260, 196)
+        Me.groupBoxPad.Controls.Add(Me.BtnQty)
+        Me.groupBoxPad.Controls.Add(Me.BtnEnter)
+        Me.groupBoxPad.Controls.Add(Me.BtnDelete)
+        Me.groupBoxPad.Controls.Add(Me.BtnClear)
+        Me.groupBoxPad.Controls.Add(Me.Btn0)
+        Me.groupBoxPad.Controls.Add(Me.Btn3)
+        Me.groupBoxPad.Controls.Add(Me.Btn2)
+        Me.groupBoxPad.Controls.Add(Me.Btn1)
+        Me.groupBoxPad.Controls.Add(Me.Btn6)
+        Me.groupBoxPad.Controls.Add(Me.Btn5)
+        Me.groupBoxPad.Controls.Add(Me.Btn4)
+        Me.groupBoxPad.Controls.Add(Me.Btn9)
+        Me.groupBoxPad.Controls.Add(Me.Btn8)
+        Me.groupBoxPad.Controls.Add(Me.Btn7)
+        Me.groupBoxPad.Location = New System.Drawing.Point(378, 202)
         Me.groupBoxPad.Name = "groupBoxPad"
         Me.groupBoxPad.Size = New System.Drawing.Size(281, 244)
         Me.groupBoxPad.TabIndex = 16
         Me.groupBoxPad.TabStop = False
         '
-        'btnQty
+        'BtnQty
         '
-        Me.btnQty.Location = New System.Drawing.Point(190, 19)
-        Me.btnQty.Name = "btnQty"
-        Me.btnQty.Size = New System.Drawing.Size(85, 50)
-        Me.btnQty.TabIndex = 13
-        Me.btnQty.Text = "Qty"
-        Me.btnQty.UseVisualStyleBackColor = True
+        Me.BtnQty.Location = New System.Drawing.Point(190, 19)
+        Me.BtnQty.Name = "BtnQty"
+        Me.BtnQty.Size = New System.Drawing.Size(85, 50)
+        Me.BtnQty.TabIndex = 13
+        Me.BtnQty.Text = "Qty"
+        Me.BtnQty.UseVisualStyleBackColor = True
         '
-        'btnEnter
+        'BtnEnter
         '
-        Me.btnEnter.Location = New System.Drawing.Point(190, 187)
-        Me.btnEnter.Name = "btnEnter"
-        Me.btnEnter.Size = New System.Drawing.Size(85, 50)
-        Me.btnEnter.TabIndex = 12
-        Me.btnEnter.Text = "Enter"
-        Me.btnEnter.UseVisualStyleBackColor = True
+        Me.BtnEnter.Location = New System.Drawing.Point(190, 187)
+        Me.BtnEnter.Name = "BtnEnter"
+        Me.BtnEnter.Size = New System.Drawing.Size(85, 50)
+        Me.BtnEnter.TabIndex = 12
+        Me.BtnEnter.Text = "Enter"
+        Me.BtnEnter.UseVisualStyleBackColor = True
         '
-        'btnDelete
+        'BtnDelete
         '
-        Me.btnDelete.Location = New System.Drawing.Point(190, 131)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(85, 50)
-        Me.btnDelete.TabIndex = 11
-        Me.btnDelete.Text = "<=="
-        Me.btnDelete.UseVisualStyleBackColor = True
+        Me.BtnDelete.Location = New System.Drawing.Point(190, 131)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Size = New System.Drawing.Size(85, 50)
+        Me.BtnDelete.TabIndex = 11
+        Me.BtnDelete.Text = "<=="
+        Me.BtnDelete.UseVisualStyleBackColor = True
         '
-        'btnClear
+        'BtnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(190, 75)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(85, 50)
-        Me.btnClear.TabIndex = 10
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.BtnClear.Location = New System.Drawing.Point(190, 75)
+        Me.BtnClear.Name = "BtnClear"
+        Me.BtnClear.Size = New System.Drawing.Size(85, 50)
+        Me.BtnClear.TabIndex = 10
+        Me.BtnClear.Text = "Clear"
+        Me.BtnClear.UseVisualStyleBackColor = True
         '
-        'btn0
+        'Btn0
         '
-        Me.btn0.Location = New System.Drawing.Point(62, 187)
-        Me.btn0.Name = "btn0"
-        Me.btn0.Size = New System.Drawing.Size(50, 50)
-        Me.btn0.TabIndex = 9
-        Me.btn0.Text = "0"
-        Me.btn0.UseVisualStyleBackColor = True
+        Me.Btn0.Location = New System.Drawing.Point(62, 187)
+        Me.Btn0.Name = "Btn0"
+        Me.Btn0.Size = New System.Drawing.Size(50, 50)
+        Me.Btn0.TabIndex = 9
+        Me.Btn0.Text = "0"
+        Me.Btn0.UseVisualStyleBackColor = True
         '
-        'btn3
+        'Btn3
         '
-        Me.btn3.Location = New System.Drawing.Point(118, 131)
-        Me.btn3.Name = "btn3"
-        Me.btn3.Size = New System.Drawing.Size(50, 50)
-        Me.btn3.TabIndex = 8
-        Me.btn3.Text = "3"
-        Me.btn3.UseVisualStyleBackColor = True
+        Me.Btn3.Location = New System.Drawing.Point(118, 131)
+        Me.Btn3.Name = "Btn3"
+        Me.Btn3.Size = New System.Drawing.Size(50, 50)
+        Me.Btn3.TabIndex = 8
+        Me.Btn3.Text = "3"
+        Me.Btn3.UseVisualStyleBackColor = True
         '
-        'btn2
+        'Btn2
         '
-        Me.btn2.Location = New System.Drawing.Point(62, 131)
-        Me.btn2.Name = "btn2"
-        Me.btn2.Size = New System.Drawing.Size(50, 50)
-        Me.btn2.TabIndex = 7
-        Me.btn2.Text = "2"
-        Me.btn2.UseVisualStyleBackColor = True
+        Me.Btn2.Location = New System.Drawing.Point(62, 131)
+        Me.Btn2.Name = "Btn2"
+        Me.Btn2.Size = New System.Drawing.Size(50, 50)
+        Me.Btn2.TabIndex = 7
+        Me.Btn2.Text = "2"
+        Me.Btn2.UseVisualStyleBackColor = True
         '
-        'btn1
+        'Btn1
         '
-        Me.btn1.Location = New System.Drawing.Point(6, 131)
-        Me.btn1.Name = "btn1"
-        Me.btn1.Size = New System.Drawing.Size(50, 50)
-        Me.btn1.TabIndex = 6
-        Me.btn1.Text = "1"
-        Me.btn1.UseVisualStyleBackColor = True
+        Me.Btn1.Location = New System.Drawing.Point(6, 131)
+        Me.Btn1.Name = "Btn1"
+        Me.Btn1.Size = New System.Drawing.Size(50, 50)
+        Me.Btn1.TabIndex = 6
+        Me.Btn1.Text = "1"
+        Me.Btn1.UseVisualStyleBackColor = True
         '
-        'btn6
+        'Btn6
         '
-        Me.btn6.Location = New System.Drawing.Point(118, 75)
-        Me.btn6.Name = "btn6"
-        Me.btn6.Size = New System.Drawing.Size(50, 50)
-        Me.btn6.TabIndex = 5
-        Me.btn6.Text = "6"
-        Me.btn6.UseVisualStyleBackColor = True
+        Me.Btn6.Location = New System.Drawing.Point(118, 75)
+        Me.Btn6.Name = "Btn6"
+        Me.Btn6.Size = New System.Drawing.Size(50, 50)
+        Me.Btn6.TabIndex = 5
+        Me.Btn6.Text = "6"
+        Me.Btn6.UseVisualStyleBackColor = True
         '
-        'btn5
+        'Btn5
         '
-        Me.btn5.Location = New System.Drawing.Point(62, 75)
-        Me.btn5.Name = "btn5"
-        Me.btn5.Size = New System.Drawing.Size(50, 50)
-        Me.btn5.TabIndex = 4
-        Me.btn5.Text = "5"
-        Me.btn5.UseVisualStyleBackColor = True
+        Me.Btn5.Location = New System.Drawing.Point(62, 75)
+        Me.Btn5.Name = "Btn5"
+        Me.Btn5.Size = New System.Drawing.Size(50, 50)
+        Me.Btn5.TabIndex = 4
+        Me.Btn5.Text = "5"
+        Me.Btn5.UseVisualStyleBackColor = True
         '
-        'btn4
+        'Btn4
         '
-        Me.btn4.Location = New System.Drawing.Point(6, 75)
-        Me.btn4.Name = "btn4"
-        Me.btn4.Size = New System.Drawing.Size(50, 50)
-        Me.btn4.TabIndex = 3
-        Me.btn4.Text = "4"
-        Me.btn4.UseVisualStyleBackColor = True
+        Me.Btn4.Location = New System.Drawing.Point(6, 75)
+        Me.Btn4.Name = "Btn4"
+        Me.Btn4.Size = New System.Drawing.Size(50, 50)
+        Me.Btn4.TabIndex = 3
+        Me.Btn4.Text = "4"
+        Me.Btn4.UseVisualStyleBackColor = True
         '
-        'btn9
+        'Btn9
         '
-        Me.btn9.Location = New System.Drawing.Point(118, 19)
-        Me.btn9.Name = "btn9"
-        Me.btn9.Size = New System.Drawing.Size(50, 50)
-        Me.btn9.TabIndex = 2
-        Me.btn9.Text = "9"
-        Me.btn9.UseVisualStyleBackColor = True
+        Me.Btn9.Location = New System.Drawing.Point(118, 19)
+        Me.Btn9.Name = "Btn9"
+        Me.Btn9.Size = New System.Drawing.Size(50, 50)
+        Me.Btn9.TabIndex = 2
+        Me.Btn9.Text = "9"
+        Me.Btn9.UseVisualStyleBackColor = True
         '
-        'btn8
+        'Btn8
         '
-        Me.btn8.Location = New System.Drawing.Point(62, 19)
-        Me.btn8.Name = "btn8"
-        Me.btn8.Size = New System.Drawing.Size(50, 50)
-        Me.btn8.TabIndex = 1
-        Me.btn8.Text = "8"
-        Me.btn8.UseVisualStyleBackColor = True
+        Me.Btn8.Location = New System.Drawing.Point(62, 19)
+        Me.Btn8.Name = "Btn8"
+        Me.Btn8.Size = New System.Drawing.Size(50, 50)
+        Me.Btn8.TabIndex = 1
+        Me.Btn8.Text = "8"
+        Me.Btn8.UseVisualStyleBackColor = True
         '
-        'btn7
+        'Btn7
         '
-        Me.btn7.Location = New System.Drawing.Point(6, 19)
-        Me.btn7.Name = "btn7"
-        Me.btn7.Size = New System.Drawing.Size(50, 50)
-        Me.btn7.TabIndex = 0
-        Me.btn7.Text = "7"
-        Me.btn7.UseVisualStyleBackColor = True
+        Me.Btn7.Location = New System.Drawing.Point(6, 19)
+        Me.Btn7.Name = "Btn7"
+        Me.Btn7.Size = New System.Drawing.Size(50, 50)
+        Me.Btn7.TabIndex = 0
+        Me.Btn7.Text = "7"
+        Me.Btn7.UseVisualStyleBackColor = True
+        '
+        'label1
+        '
+        Me.label1.AutoSize = True
+        Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label1.Location = New System.Drawing.Point(12, 414)
+        Me.label1.Name = "label1"
+        Me.label1.Size = New System.Drawing.Size(187, 29)
+        Me.label1.TabIndex = 28
+        Me.label1.Text = "Start New Order"
+        Me.label1.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'TxtTotal
+        '
+        Me.TxtTotal.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtTotal.Location = New System.Drawing.Point(200, 411)
+        Me.TxtTotal.MaxLength = 10
+        Me.TxtTotal.Name = "TxtTotal"
+        Me.TxtTotal.ReadOnly = True
+        Me.TxtTotal.Size = New System.Drawing.Size(172, 35)
+        Me.TxtTotal.TabIndex = 27
+        '
+        'lblQty
+        '
+        Me.lblQty.AutoSize = True
+        Me.lblQty.Location = New System.Drawing.Point(197, 452)
+        Me.lblQty.Name = "lblQty"
+        Me.lblQty.Size = New System.Drawing.Size(29, 13)
+        Me.lblQty.TabIndex = 26
+        Me.lblQty.Text = "Qty: "
+        Me.lblQty.Visible = False
+        '
+        'txtInput
+        '
+        Me.txtInput.BackColor = System.Drawing.SystemColors.Control
+        Me.txtInput.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtInput.Location = New System.Drawing.Point(251, 452)
+        Me.txtInput.MaxLength = 10
+        Me.txtInput.Name = "txtInput"
+        Me.txtInput.ReadOnly = True
+        Me.txtInput.Size = New System.Drawing.Size(408, 35)
+        Me.txtInput.TabIndex = 25
+        '
+        'listViewGrocery
+        '
+        Me.listViewGrocery.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.listViewGrocery.GridLines = True
+        Me.listViewGrocery.Location = New System.Drawing.Point(12, 12)
+        Me.listViewGrocery.Name = "listViewGrocery"
+        Me.listViewGrocery.Size = New System.Drawing.Size(360, 393)
+        Me.listViewGrocery.TabIndex = 29
+        Me.listViewGrocery.UseCompatibleStateImageBehavior = False
+        '
+        'groupBoxMain
+        '
+        Me.groupBoxMain.Controls.Add(Me.BtnLogOff)
+        Me.groupBoxMain.Controls.Add(Me.BtnEnterCoupon)
+        Me.groupBoxMain.Controls.Add(Me.BtnPay)
+        Me.groupBoxMain.Controls.Add(Me.TxtCashOut)
+        Me.groupBoxMain.Controls.Add(Me.BtnBack)
+        Me.groupBoxMain.Controls.Add(Me.BtnLock)
+        Me.groupBoxMain.Controls.Add(Me.BtnCash)
+        Me.groupBoxMain.Controls.Add(Me.BtnCoupon)
+        Me.groupBoxMain.Controls.Add(Me.BtnVoid)
+        Me.groupBoxMain.Controls.Add(Me.BtnRegOptions)
+        Me.groupBoxMain.Controls.Add(Me.BtnTender)
+        Me.groupBoxMain.Controls.Add(Me.BtnEFT)
+        Me.groupBoxMain.Location = New System.Drawing.Point(378, 12)
+        Me.groupBoxMain.Name = "groupBoxMain"
+        Me.groupBoxMain.Size = New System.Drawing.Size(281, 184)
+        Me.groupBoxMain.TabIndex = 30
+        Me.groupBoxMain.TabStop = False
+        '
+        'BtnLogOff
+        '
+        Me.BtnLogOff.Location = New System.Drawing.Point(8, 72)
+        Me.BtnLogOff.Name = "BtnLogOff"
+        Me.BtnLogOff.Size = New System.Drawing.Size(85, 50)
+        Me.BtnLogOff.TabIndex = 31
+        Me.BtnLogOff.Text = "Log Off"
+        Me.BtnLogOff.UseVisualStyleBackColor = True
+        Me.BtnLogOff.Visible = False
+        '
+        'BtnEnterCoupon
+        '
+        Me.BtnEnterCoupon.Location = New System.Drawing.Point(8, 128)
+        Me.BtnEnterCoupon.Name = "BtnEnterCoupon"
+        Me.BtnEnterCoupon.Size = New System.Drawing.Size(85, 50)
+        Me.BtnEnterCoupon.TabIndex = 30
+        Me.BtnEnterCoupon.Text = "Enter"
+        Me.BtnEnterCoupon.UseVisualStyleBackColor = True
+        Me.BtnEnterCoupon.Visible = False
+        '
+        'BtnPay
+        '
+        Me.BtnPay.Location = New System.Drawing.Point(8, 128)
+        Me.BtnPay.Name = "BtnPay"
+        Me.BtnPay.Size = New System.Drawing.Size(85, 50)
+        Me.BtnPay.TabIndex = 29
+        Me.BtnPay.Text = "Pay"
+        Me.BtnPay.UseVisualStyleBackColor = True
+        Me.BtnPay.Visible = False
+        '
+        'TxtCashOut
+        '
+        Me.TxtCashOut.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtCashOut.Enabled = False
+        Me.TxtCashOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtCashOut.Location = New System.Drawing.Point(6, 16)
+        Me.TxtCashOut.MaxLength = 10
+        Me.TxtCashOut.Name = "TxtCashOut"
+        Me.TxtCashOut.ReadOnly = True
+        Me.TxtCashOut.Size = New System.Drawing.Size(165, 35)
+        Me.TxtCashOut.TabIndex = 28
+        Me.TxtCashOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtCashOut.Visible = False
+        '
+        'BtnBack
+        '
+        Me.BtnBack.Location = New System.Drawing.Point(190, 128)
+        Me.BtnBack.Name = "BtnBack"
+        Me.BtnBack.Size = New System.Drawing.Size(85, 50)
+        Me.BtnBack.TabIndex = 1
+        Me.BtnBack.Text = "<=="
+        Me.BtnBack.UseVisualStyleBackColor = True
+        '
+        'BtnLock
+        '
+        Me.BtnLock.Location = New System.Drawing.Point(190, 16)
+        Me.BtnLock.Name = "BtnLock"
+        Me.BtnLock.Size = New System.Drawing.Size(85, 50)
+        Me.BtnLock.TabIndex = 5
+        Me.BtnLock.Text = "Lock"
+        Me.BtnLock.UseVisualStyleBackColor = True
+        '
+        'BtnCash
+        '
+        Me.BtnCash.Location = New System.Drawing.Point(8, 16)
+        Me.BtnCash.Name = "BtnCash"
+        Me.BtnCash.Size = New System.Drawing.Size(85, 50)
+        Me.BtnCash.TabIndex = 0
+        Me.BtnCash.Text = "Cash"
+        Me.BtnCash.UseVisualStyleBackColor = True
+        Me.BtnCash.Visible = False
+        '
+        'BtnCoupon
+        '
+        Me.BtnCoupon.Location = New System.Drawing.Point(99, 16)
+        Me.BtnCoupon.Name = "BtnCoupon"
+        Me.BtnCoupon.Size = New System.Drawing.Size(85, 50)
+        Me.BtnCoupon.TabIndex = 4
+        Me.BtnCoupon.Text = "Coupon"
+        Me.BtnCoupon.UseVisualStyleBackColor = True
+        '
+        'BtnVoid
+        '
+        Me.BtnVoid.Location = New System.Drawing.Point(99, 72)
+        Me.BtnVoid.Name = "BtnVoid"
+        Me.BtnVoid.Size = New System.Drawing.Size(85, 50)
+        Me.BtnVoid.TabIndex = 3
+        Me.BtnVoid.Text = "Void"
+        Me.BtnVoid.UseVisualStyleBackColor = True
+        '
+        'BtnRegOptions
+        '
+        Me.BtnRegOptions.Location = New System.Drawing.Point(190, 72)
+        Me.BtnRegOptions.Name = "BtnRegOptions"
+        Me.BtnRegOptions.Size = New System.Drawing.Size(85, 50)
+        Me.BtnRegOptions.TabIndex = 2
+        Me.BtnRegOptions.Text = "Register Options"
+        Me.BtnRegOptions.UseVisualStyleBackColor = True
+        '
+        'BtnTender
+        '
+        Me.BtnTender.Location = New System.Drawing.Point(99, 128)
+        Me.BtnTender.Name = "BtnTender"
+        Me.BtnTender.Size = New System.Drawing.Size(85, 50)
+        Me.BtnTender.TabIndex = 0
+        Me.BtnTender.Text = "Tender"
+        Me.BtnTender.UseVisualStyleBackColor = True
+        '
+        'BtnEFT
+        '
+        Me.BtnEFT.Location = New System.Drawing.Point(190, 16)
+        Me.BtnEFT.Name = "BtnEFT"
+        Me.BtnEFT.Size = New System.Drawing.Size(85, 50)
+        Me.BtnEFT.TabIndex = 1
+        Me.BtnEFT.Text = "EFT"
+        Me.BtnEFT.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(553, 452)
+        Me.ClientSize = New System.Drawing.Size(684, 511)
+        Me.Controls.Add(Me.groupBoxMain)
+        Me.Controls.Add(Me.listViewGrocery)
+        Me.Controls.Add(Me.label1)
+        Me.Controls.Add(Me.TxtTotal)
+        Me.Controls.Add(Me.lblQty)
+        Me.Controls.Add(Me.txtInput)
         Me.Controls.Add(Me.groupBoxPad)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.groupBoxPad.ResumeLayout(False)
+        Me.groupBoxMain.ResumeLayout(False)
+        Me.groupBoxMain.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Private WithEvents groupBoxPad As GroupBox
-    Private WithEvents btnQty As Button
-    Private WithEvents btnEnter As Button
-    Private WithEvents btnDelete As Button
-    Private WithEvents btnClear As Button
-    Private WithEvents btn0 As Button
-    Private WithEvents btn3 As Button
-    Private WithEvents btn2 As Button
-    Private WithEvents btn1 As Button
-    Private WithEvents btn6 As Button
-    Private WithEvents btn5 As Button
-    Private WithEvents btn4 As Button
-    Private WithEvents btn9 As Button
-    Private WithEvents btn8 As Button
-    Private WithEvents btn7 As Button
+    Private WithEvents BtnQty As Button
+    Private WithEvents BtnEnter As Button
+    Private WithEvents BtnDelete As Button
+    Private WithEvents BtnClear As Button
+    Private WithEvents Btn0 As Button
+    Private WithEvents Btn3 As Button
+    Private WithEvents Btn2 As Button
+    Private WithEvents Btn1 As Button
+    Private WithEvents Btn6 As Button
+    Private WithEvents Btn5 As Button
+    Private WithEvents Btn4 As Button
+    Private WithEvents Btn9 As Button
+    Private WithEvents Btn8 As Button
+    Private WithEvents Btn7 As Button
+    Private WithEvents label1 As Label
+    Private WithEvents TxtTotal As TextBox
+    Private WithEvents lblQty As Label
+    Private WithEvents txtInput As TextBox
+    Private WithEvents listViewGrocery As ListView
+    Private WithEvents groupBoxMain As GroupBox
+    Private WithEvents BtnLogOff As Button
+    Private WithEvents BtnEnterCoupon As Button
+    Private WithEvents BtnPay As Button
+    Private WithEvents TxtCashOut As TextBox
+    Private WithEvents BtnBack As Button
+    Private WithEvents BtnLock As Button
+    Private WithEvents BtnCash As Button
+    Private WithEvents BtnCoupon As Button
+    Private WithEvents BtnVoid As Button
+    Private WithEvents BtnRegOptions As Button
+    Private WithEvents BtnTender As Button
+    Private WithEvents BtnEFT As Button
 End Class
