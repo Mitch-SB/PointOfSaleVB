@@ -1,4 +1,9 @@
-﻿Public Class Form1
+﻿Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Windows.Forms
+
+Public Class Register
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Initialize the ListView Control
@@ -14,8 +19,24 @@
         listViewGrocery.Columns.Add("Tax", 45)
     End Sub
 
-    Dim Qty As Integer = 1
+    Dim total = 0
+    Dim qty As Integer = 1
+    Const _tax As Decimal = 0.07
 
+    Public Function TotalCount()
+        total = 0
+
+        'adds up the value on the 4th column index for each item inside the ListView
+        For i = 0 To listViewGrocery.Items.Count Step 1
+            If i < listViewGrocery.Items.Count Then
+                total += listViewGrocery.Items(i).SubItems(3).Text
+                Continue For
+            End If
+
+        Next
+        TxtTotal.Text = "$" + total.ToString()
+        Return total
+    End Function
 
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
         'Insert button value to the txtInput string
@@ -87,8 +108,8 @@
     Private Sub BtnQty_Click(sender As Object, e As EventArgs) Handles BtnQty.Click
         'Set quantity for items "scanned" | Cannot exceed 100 units
         If txtInput.TextLength < 3 And txtInput.TextLength > 0 Then
-            Qty = txtInput.Text
-            lblQty.Text = "Qty: " & Qty.ToString()
+            qty = txtInput.Text
+            lblQty.Text = "Qty: " & qty.ToString()
             lblQty.Visible = True
             txtInput.Clear()
         ElseIf txtInput.TextLength > 3 Then
@@ -100,4 +121,95 @@
         End If
     End Sub
 
+    Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
+        'Establish connection
+        Dim db As DataAccess = New DataAccess()
+        Dim strInput = txtInput.Text
+
+        Dim grocery As Grocery = db.GetGrocery(txtInput.Text)
+
+        If grocery.Name <> "" Then
+            txtInput.Clear()
+            lblQty.Visible = False
+            label1.Text = "Total:"
+
+            'Set up array for the ListView
+            Dim arr(5) As String
+            Dim itm As ListViewItem
+            Dim result As Decimal
+            Dim id18 As Boolean
+            Dim id21 As Boolean
+            Dim taxable As Boolean
+            Dim price As Decimal
+            Dim tax As Decimal
+
+            'TRY Parse the boolean data for validation
+            Boolean.TryParse(grocery.Identification18.ToString(), id18)
+            Boolean.TryParse(grocery.Identification21.ToString(), id21)
+
+            If id18 = True And id21 = True Then
+                Dim dialogResult21 As DialogResult = MessageBox.Show("Is the customer 21 years or older?", "Please Ask For ID", MessageBoxButtons.YesNo)
+                If dialogResult21 = DialogResult.Yes Then
+                    'will resume as normal if the customer is 21 years or older
+                Else
+                    Return 'Ends execution
+                End If
+            End If
+
+            If id18 = True And id21 = False Then
+                Dim dialogResult18 As DialogResult = MessageBox.Show("Is the customer 18 years or older?", "Please Ask For ID", MessageBoxButtons.YesNo)
+                If dialogResult18 = DialogResult.Yes Then
+                    'will resume as normal if the customer is 21 years or older
+                Else
+                    Return 'Ends execution
+                End If
+            End If
+
+            'assign the data to the appropriate fileds
+            arr(0) = grocery.Name
+            arr(1) = grocery.Price.ToString("#.##")
+            arr(2) = qty.ToString()
+
+            'TRY Parse the boolean data for validation
+            Boolean.TryParse(grocery.Taxable.ToString(), taxable)
+
+            'Parse Price into a decimal for calculations
+            Decimal.TryParse(grocery.Price.ToString(), price)
+
+            'if taxable, will calculate the price of the item, quantity, and the tax constant
+            If taxable = True Then
+                arr(4) = "Y"
+                tax = (price * qty * _tax)
+                Decimal.Round(tax, 2, MidpointRounding.AwayFromZero)
+                result = ((price * qty) + tax)
+            Else
+                arr(4) = "N"
+                result = price * qty
+            End If
+
+            arr(3) = result.ToString("#.##")
+
+            'add items inside arr array into the ListView
+            itm = New ListViewItem(arr)
+            listViewGrocery.Items.Add(itm)
+        Else
+            MessageBox.Show("Invalid Input!")
+            txtInput.Clear()
+        End If
+        qty = 1
+
+        TotalCount()
+    End Sub
+
+    Private Sub BtnVoid_Click(sender As Object, e As EventArgs) Handles BtnVoid.Click
+        'removes the selected items inside the list view
+        For Each eachItem As ListViewItem In listViewGrocery.SelectedItems
+            listViewGrocery.Items.Remove(eachItem)
+        Next
+
+        TotalCount()
+        TxtTotal.Text = "$" + total.ToString()
+        qty = 1
+
+    End Sub
 End Class

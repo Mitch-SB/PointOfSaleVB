@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class Register
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -397,7 +397,7 @@ Partial Class Form1
         Me.BtnEFT.Text = "EFT"
         Me.BtnEFT.UseVisualStyleBackColor = True
         '
-        'Form1
+        'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -409,8 +409,8 @@ Partial Class Form1
         Me.Controls.Add(Me.lblQty)
         Me.Controls.Add(Me.txtInput)
         Me.Controls.Add(Me.groupBoxPad)
-        Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Name = "Register"
+        Me.Text = "Register"
         Me.groupBoxPad.ResumeLayout(False)
         Me.groupBoxMain.ResumeLayout(False)
         Me.groupBoxMain.PerformLayout()
