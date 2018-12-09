@@ -55,8 +55,18 @@ Partial Class Register
         Me.BtnRegOptions = New System.Windows.Forms.Button()
         Me.BtnTender = New System.Windows.Forms.Button()
         Me.BtnEFT = New System.Windows.Forms.Button()
+        Me.groupBoxTenderTotal = New System.Windows.Forms.GroupBox()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblTax = New System.Windows.Forms.Label()
+        Me.lblSavings = New System.Windows.Forms.Label()
+        Me.lblSubTotal = New System.Windows.Forms.Label()
+        Me.label5 = New System.Windows.Forms.Label()
+        Me.label4 = New System.Windows.Forms.Label()
+        Me.label3 = New System.Windows.Forms.Label()
+        Me.label2 = New System.Windows.Forms.Label()
         Me.groupBoxPad.SuspendLayout()
         Me.groupBoxMain.SuspendLayout()
+        Me.groupBoxTenderTotal.SuspendLayout()
         Me.SuspendLayout()
         '
         'groupBoxPad
@@ -397,11 +407,106 @@ Partial Class Register
         Me.BtnEFT.Text = "EFT"
         Me.BtnEFT.UseVisualStyleBackColor = True
         '
+        'groupBoxTenderTotal
+        '
+        Me.groupBoxTenderTotal.BackColor = System.Drawing.Color.Silver
+        Me.groupBoxTenderTotal.Controls.Add(Me.lblTotal)
+        Me.groupBoxTenderTotal.Controls.Add(Me.lblTax)
+        Me.groupBoxTenderTotal.Controls.Add(Me.lblSavings)
+        Me.groupBoxTenderTotal.Controls.Add(Me.lblSubTotal)
+        Me.groupBoxTenderTotal.Controls.Add(Me.label5)
+        Me.groupBoxTenderTotal.Controls.Add(Me.label4)
+        Me.groupBoxTenderTotal.Controls.Add(Me.label3)
+        Me.groupBoxTenderTotal.Controls.Add(Me.label2)
+        Me.groupBoxTenderTotal.Location = New System.Drawing.Point(12, 116)
+        Me.groupBoxTenderTotal.Name = "groupBoxTenderTotal"
+        Me.groupBoxTenderTotal.Size = New System.Drawing.Size(360, 187)
+        Me.groupBoxTenderTotal.TabIndex = 31
+        Me.groupBoxTenderTotal.TabStop = False
+        Me.groupBoxTenderTotal.Visible = False
+        '
+        'lblTotal
+        '
+        Me.lblTotal.AutoSize = True
+        Me.lblTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotal.Location = New System.Drawing.Point(135, 144)
+        Me.lblTotal.Name = "lblTotal"
+        Me.lblTotal.Size = New System.Drawing.Size(0, 29)
+        Me.lblTotal.TabIndex = 32
+        '
+        'lblTax
+        '
+        Me.lblTax.AutoSize = True
+        Me.lblTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTax.Location = New System.Drawing.Point(135, 16)
+        Me.lblTax.Name = "lblTax"
+        Me.lblTax.Size = New System.Drawing.Size(0, 29)
+        Me.lblTax.TabIndex = 31
+        '
+        'lblSavings
+        '
+        Me.lblSavings.AutoSize = True
+        Me.lblSavings.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSavings.Location = New System.Drawing.Point(135, 45)
+        Me.lblSavings.Name = "lblSavings"
+        Me.lblSavings.Size = New System.Drawing.Size(0, 29)
+        Me.lblSavings.TabIndex = 30
+        '
+        'lblSubTotal
+        '
+        Me.lblSubTotal.AutoSize = True
+        Me.lblSubTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubTotal.Location = New System.Drawing.Point(135, 74)
+        Me.lblSubTotal.Name = "lblSubTotal"
+        Me.lblSubTotal.Size = New System.Drawing.Size(0, 29)
+        Me.lblSubTotal.TabIndex = 29
+        '
+        'label5
+        '
+        Me.label5.AutoSize = True
+        Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label5.Location = New System.Drawing.Point(6, 144)
+        Me.label5.Name = "label5"
+        Me.label5.Size = New System.Drawing.Size(74, 29)
+        Me.label5.TabIndex = 28
+        Me.label5.Text = "Total:"
+        '
+        'label4
+        '
+        Me.label4.AutoSize = True
+        Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label4.Location = New System.Drawing.Point(6, 16)
+        Me.label4.Name = "label4"
+        Me.label4.Size = New System.Drawing.Size(59, 29)
+        Me.label4.TabIndex = 27
+        Me.label4.Text = "Tax:"
+        '
+        'label3
+        '
+        Me.label3.AutoSize = True
+        Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label3.Location = New System.Drawing.Point(6, 45)
+        Me.label3.Name = "label3"
+        Me.label3.Size = New System.Drawing.Size(104, 29)
+        Me.label3.TabIndex = 26
+        Me.label3.Text = "Savings:"
+        '
+        'label2
+        '
+        Me.label2.AutoSize = True
+        Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label2.Location = New System.Drawing.Point(6, 74)
+        Me.label2.Name = "label2"
+        Me.label2.Size = New System.Drawing.Size(123, 29)
+        Me.label2.TabIndex = 25
+        Me.label2.Text = "Sub Total:"
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 511)
+        Me.Controls.Add(Me.groupBoxTenderTotal)
         Me.Controls.Add(Me.groupBoxMain)
         Me.Controls.Add(Me.listViewGrocery)
         Me.Controls.Add(Me.label1)
@@ -414,6 +519,8 @@ Partial Class Register
         Me.groupBoxPad.ResumeLayout(False)
         Me.groupBoxMain.ResumeLayout(False)
         Me.groupBoxMain.PerformLayout()
+        Me.groupBoxTenderTotal.ResumeLayout(False)
+        Me.groupBoxTenderTotal.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -452,4 +559,13 @@ Partial Class Register
     Private WithEvents BtnRegOptions As Button
     Private WithEvents BtnTender As Button
     Private WithEvents BtnEFT As Button
+    Private WithEvents groupBoxTenderTotal As GroupBox
+    Private WithEvents lblTotal As Label
+    Private WithEvents lblTax As Label
+    Private WithEvents lblSavings As Label
+    Private WithEvents lblSubTotal As Label
+    Private WithEvents label5 As Label
+    Private WithEvents label4 As Label
+    Private WithEvents label3 As Label
+    Private WithEvents label2 As Label
 End Class
