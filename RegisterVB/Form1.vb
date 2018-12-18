@@ -4,13 +4,6 @@ Imports System.Windows.Forms
 
 Public Class Register
 
-    Const _tax As Decimal = 0.07
-
-    Dim total As Decimal = 0.00
-    Dim subTotal As Decimal = 0.00
-    Dim qty As Integer = 1
-    Dim coupon As Decimal = 0.00
-    Dim taxTotal As Decimal = 0.00
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Initialize the ListView Control
@@ -26,6 +19,10 @@ Public Class Register
         listViewGrocery.Columns.Add("Tax", 45)
     End Sub
 
+    Dim total = 0
+    Dim qty As Integer = 1
+    Const _tax As Decimal = 0.07
+
     Public Function TotalCount()
         total = 0
 
@@ -39,20 +36,6 @@ Public Class Register
         Next
         TxtTotal.Text = "$" + total.ToString()
         Return total
-    End Function
-
-    Public Function TaxCount()
-        taxTotal = 0
-
-        'Multiplies the value on the 4th column index with my tax constant if the value for Tax on the 5th column equals "Y"
-        For i = 0 To listViewGrocery.Items.Count Step 1
-            If i < listViewGrocery.Items.Count Then
-                If listViewGrocery.Items(i).SubItems(4).Text = "Y" Then
-                    taxTotal += listViewGrocery.Items(i).SubItems(1).Text * listViewGrocery.Items(i).SubItems(2).Text * _tax
-                End If
-            End If
-        Next
-        Return taxTotal
     End Function
 
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
@@ -216,7 +199,6 @@ Public Class Register
         qty = 1
 
         TotalCount()
-        BtnBack_Click(sender, e)
     End Sub
 
     Private Sub BtnVoid_Click(sender As Object, e As EventArgs) Handles BtnVoid.Click
@@ -229,76 +211,5 @@ Public Class Register
         TxtTotal.Text = "$" + total.ToString()
         qty = 1
 
-    End Sub
-
-    Private Sub BtnTender_Click(sender As Object, e As EventArgs) Handles BtnTender.Click
-        'Will only allow transaction to be tendered if there is a scanned item inside the ListView
-        If listViewGrocery.Items.Count = 0 Then
-            MessageBox.Show("Start A New Order To Tender")
-        Else
-            'Sets the Tender groupbox visibility to true and hides certain buttons to continue transaction
-            BtnCash.Visible = True
-            BtnEFT.Visible = True
-
-            BtnCoupon.Visible = False
-            BtnLock.Visible = False
-            BtnVoid.Visible = False
-            BtnRegOptions.Visible = False
-            BtnTender.Visible = False
-
-            groupBoxTenderTotal.Visible = True
-
-            TotalCount()
-            TaxCount()
-
-            'Calculates the amount of savings/coupons in the transaction
-            coupon = 0.00 'reset to zero for proper calculation
-
-            For i = 0 To listViewGrocery.Items.Count Step 1
-                If i < listViewGrocery.Items.Count Then
-                    If listViewGrocery.Items(i).SubItems(0).Text = "Coupon" Then
-                        coupon += listViewGrocery.Items(i).SubItems(3).Text
-                    End If
-                End If
-            Next
-
-            lblSavings.Text = "$" & coupon
-            lblTax.Text = "$" + taxTotal.ToString("0.00")
-
-            'Calculates the subtotal of the current transaction
-            subTotal = 0.00 'reset to zero for proper calculation
-
-            For i = 0 To listViewGrocery.Items.Count Step 1
-                If i < listViewGrocery.Items.Count Then
-                    If listViewGrocery.Items(i).SubItems(0).Text <> "Coupon" Then
-                        subTotal += listViewGrocery.Items(i).SubItems(1).Text * listViewGrocery.Items(i).SubItems(2).Text
-                    End If
-                End If
-            Next
-
-            lblSubTotal.Text = "$" + subTotal.ToString("#.##")
-            lblTotal.Text = TxtTotal.Text
-
-        End If
-    End Sub
-
-    Private Sub BtnBack_Click(sender As Object, e As EventArgs) Handles BtnBack.Click
-        'enables and disables the visibility option based on what needs to be displayed
-        'Prioritizing the default view
-        If BtnCash.Visible = True Then     ''''Remove current if statement and keep it simple?
-            BtnCash.Visible = False
-            BtnEFT.Visible = False
-            BtnPay.Visible = False
-            BtnLogOff.Visible = False
-
-            BtnCoupon.Visible = True
-            BtnLock.Visible = True
-            BtnVoid.Visible = True
-            BtnRegOptions.Visible = True
-            BtnTender.Visible = True
-            BtnLock.Enabled = True
-
-            groupBoxTenderTotal.Visible = False
-        End If
     End Sub
 End Class
