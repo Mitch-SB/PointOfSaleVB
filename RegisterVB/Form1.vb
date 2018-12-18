@@ -1,6 +1,7 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
+Imports System.Text
 
 Public Class Register
 
@@ -57,68 +58,187 @@ Public Class Register
 
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "0"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 And TxtCashOut.Text <> "" Then
+                TxtCashOut.Text += "0"
+            End If
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "0"
+            End If
+
+        End If
     End Sub
 
     Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "1"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "1"
+            End If
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "1"
+            End If
+
+        End If
     End Sub
 
     Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles Btn2.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "2"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "2"
+            End If
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "2"
+            End If
+        End If
     End Sub
 
     Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles Btn3.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "3"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "3"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "3"
+            End If
+        End If
     End Sub
 
     Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles Btn4.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "4"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "4"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "4"
+            End If
+        End If
     End Sub
 
     Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles Btn5.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "5"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "5"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "5"
+            End If
+        End If
     End Sub
 
     Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles Btn6.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "6"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "6"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "6"
+            End If
+        End If
     End Sub
 
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "7"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "7"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "7"
+            End If
+        End If
     End Sub
 
     Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "8"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "8"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "8"
+            End If
+        End If
     End Sub
 
     Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
         'Insert button value to the txtInput string
-        txtInput.Text += "9"
+        'Prioritize current visible text box
+        If TxtCashOut.Visible = True Then
+
+            If TxtCashOut.TextLength < 6 Then
+                TxtCashOut.Text += "9"
+            End If
+
+        Else
+            If txtInput.TextLength <= 11 Then
+                txtInput.Text += "9"
+            End If
+        End If
     End Sub
 
     Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles BtnClear.Click
         'Clear the current text input
         txtInput.Clear()
+        TxtCashOut.Clear()
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         Dim i As String = txtInput.Text
+        Dim o As String = TxtCashOut.Text
+
         Dim result As String
 
-        'Delete the preceding text on the txtInput textbox
-        If i.Length > 0 Then
-            result = i.Remove(i.Length - 1) 'delete the current text based on the length of the string minus one
-            txtInput.Text = result 'reasign the new value to the textbox
+        If TxtCashOut.Visible = True Then
+            If o.Length > 0 Then
+                result = o.Remove(o.Length - 1) 'delete the current text based on the length of the string minus one
+                TxtCashOut.Text = result 'reasign the new value to the textbox
+            End If
+        Else
+            'Delete the preceding text on the txtInput textbox
+            If i.Length > 0 Then
+                result = i.Remove(i.Length - 1) 'delete the current text based on the length of the string minus one
+                txtInput.Text = result 'reasign the new value to the textbox
+            End If
         End If
+
+
 
     End Sub
 
@@ -283,22 +403,96 @@ Public Class Register
     End Sub
 
     Private Sub BtnBack_Click(sender As Object, e As EventArgs) Handles BtnBack.Click
-        'enables and disables the visibility option based on what needs to be displayed
+        'enables and disables the visibility option of certain buttons based on what needs to be displayed
         'Prioritizing the default view
-        If BtnCash.Visible = True Then     ''''Remove current if statement and keep it simple?
-            BtnCash.Visible = False
-            BtnEFT.Visible = False
-            BtnPay.Visible = False
-            BtnLogOff.Visible = False
+        'If BtnCash.Visible = True Then     ''''Remove current if statement and keep it simple?
+        '    BtnCash.Visible = False
+        '    BtnEFT.Visible = False
+        '    BtnPay.Visible = False
+        '    BtnLogOff.Visible = False
 
-            BtnCoupon.Visible = True
-            BtnLock.Visible = True
-            BtnVoid.Visible = True
-            BtnRegOptions.Visible = True
-            BtnTender.Visible = True
-            BtnLock.Enabled = True
+        '    BtnCoupon.Visible = True
+        '    BtnLock.Visible = True
+        '    BtnVoid.Visible = True
+        '    BtnRegOptions.Visible = True
+        '    BtnTender.Visible = True
+        '    BtnLock.Enabled = True
 
-            groupBoxTenderTotal.Visible = False
+        '    groupBoxTenderTotal.Visible = False
+        'End If
+        BtnCash.Visible = False
+        BtnEFT.Visible = False
+        BtnPay.Visible = False
+        BtnLogOff.Visible = False
+        BtnEnterCoupon.Visible = False
+        TxtCashOut.Visible = False
+
+        BtnCoupon.Visible = True
+        BtnLock.Visible = True
+        BtnVoid.Visible = True
+        BtnRegOptions.Visible = True
+        BtnTender.Visible = True
+        BtnLock.Enabled = True
+
+        groupBoxTenderTotal.Visible = False
+    End Sub
+
+    Private Sub BtnCoupon_Click(sender As Object, e As EventArgs) Handles BtnCoupon.Click
+        'enables and disables the visibility option of certain buttons based on what needs to be displayed
+        BtnCoupon.Visible = False
+        BtnLock.Visible = False
+        BtnVoid.Visible = False
+        BtnRegOptions.Visible = False
+        BtnTender.Visible = False
+
+        BtnEnterCoupon.Visible = True
+        TxtCashOut.Visible = True
+    End Sub
+
+    Private Sub BtnEnterCoupon_Click(sender As Object, e As EventArgs) Handles BtnEnterCoupon.Click
+        'New array for coupon entry
+        Dim arr(5) As String
+        Dim itm As ListViewItem
+
+        'New String Builder for coupon entry
+        Dim couponBuilder As StringBuilder = New StringBuilder(TxtCashOut.Text)
+
+        'capture text as string to use the contain method
+        Dim couponStr As String = TxtCashOut.Text
+
+        arr(0) = "Coupon"
+        arr(1) = ""
+        arr(2) = ""
+        arr(4) = ""
+
+        'allows insertion of a decimal point depending on how many characters are inside the string
+        If couponStr.Contains(".") = False Then
+            If TxtCashOut.TextLength < 3 Then
+                If TxtCashOut.TextLength = 2 Then
+                    couponBuilder.Insert((TxtCashOut.TextLength - TxtCashOut.TextLength), "0.")
+                    TxtCashOut.Text = couponBuilder.ToString()
+                Else
+                    couponBuilder.Insert((TxtCashOut.TextLength - TxtCashOut.TextLength), "0.0")
+                    TxtCashOut.Text = couponBuilder.ToString()
+                End If
+            Else
+                couponBuilder.Insert((TxtCashOut.TextLength - 2), ".")
+                TxtCashOut.Text = couponBuilder.ToString()
+            End If
+        Else
+            If TxtCashOut.Text < 0 Then
+                TxtCashOut.Text = ""
+            Else
+                arr(3) = "-" & TxtCashOut.Text
+
+                itm = New ListViewItem(arr)
+                listViewGrocery.Items.Add(itm)
+
+                BtnClear_Click(sender, e)
+                BtnBack_Click(sender, e)
+                TotalCount()
+
+            End If
         End If
     End Sub
 End Class
