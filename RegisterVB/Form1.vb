@@ -1,7 +1,4 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-Imports System.Windows.Forms
-Imports System.Text
+﻿Imports System.Text
 
 Public Class Register
 
@@ -237,9 +234,6 @@ Public Class Register
                 txtInput.Text = result 'reasign the new value to the textbox
             End If
         End If
-
-
-
     End Sub
 
     Private Sub BtnQty_Click(sender As Object, e As EventArgs) Handles BtnQty.Click

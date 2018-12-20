@@ -515,6 +515,7 @@ Partial Class Register
         Me.Controls.Add(Me.txtInput)
         Me.Controls.Add(Me.groupBoxPad)
         Me.Name = "Register"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Register"
         Me.groupBoxPad.ResumeLayout(False)
         Me.groupBoxMain.ResumeLayout(False)
