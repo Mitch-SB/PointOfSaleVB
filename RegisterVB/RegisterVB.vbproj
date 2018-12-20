@@ -90,6 +90,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cashiers.vb" />
     <Compile Include="DataAccess.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

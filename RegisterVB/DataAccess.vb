@@ -36,4 +36,31 @@ Public Class DataAccess
 
     End Function
 
+    Public Function GetCashier(ByVal cashNumber) As Cashiers
+        Dim matchingCashier As Cashiers = New Cashiers()
+        Dim helper As Helper = New Helper()
+
+        Dim myCnn As String = helper.connectionString
+        Dim cnn As SqlConnection = New SqlConnection(myCnn)
+
+        'Query that will run my stored procedure
+        Dim oString As String = "dbo.Cashier_GetByCashNumber @CashNumber"
+        Dim oCmd As SqlCommand = New SqlCommand(oString, cnn)
+        oCmd.Parameters.AddWithValue("@CashNumber", cashNumber)
+        cnn.Open()
+
+        Using oReader As SqlDataReader = oCmd.ExecuteReader()
+            While oReader.Read()
+                'assigns the values grabbed into their respective places
+                matchingCashier.Name = oReader("Name").ToString()
+                matchingCashier.CashNumber = oReader("CashNumber").ToString()
+                matchingCashier.UserPassword = oReader("UserPassword").ToString()
+
+            End While
+            'Securely closes my connection
+            cnn.Close()
+
+        End Using
+        Return matchingCashier
+    End Function
 End Class

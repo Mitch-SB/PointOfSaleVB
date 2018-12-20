@@ -10,6 +10,10 @@ Public Class Register
     Dim coupon As Decimal = 0.00
     Dim taxTotal As Decimal = 0.00
 
+    Public Shared _cashier As String
+    Public Shared _cashNumber As Integer
+    Public Shared _password As Integer
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Initialize the ListView Control
         listViewGrocery.View = View.Details

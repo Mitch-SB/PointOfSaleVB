@@ -1,4 +1,6 @@
 ﻿Public Class LogIn
+    Dim register As Register = New Register
+
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
         'Insert button value into either TxtCashier or TxtPassword textboxes if enabled
         If TxtCashier.Enabled = True Then
@@ -153,8 +155,48 @@
         Else
             'Delete the preceding text on the TxtPassword textbox
             If o.Length > 0 Then
-                result = o.Remove(i.Length - 1) 'delete the current text based on the length of the string minus one
+                result = o.Remove(o.Length - 1) 'delete the current text based on the length of the string minus one
                 TxtPassword.Text = result 'reasign the new value to the textbox
+            End If
+        End If
+    End Sub
+
+    Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
+        If TxtCashier.Enabled = True Then
+            'Establish connection
+            Dim db As DataAccess = New DataAccess
+            Dim c As Cashiers = db.GetCashier(TxtCashier.Text)
+
+            'If user enters an invalid cashier number, cashier name will turn up null and will not run. clears
+            If c.Name = "" Then
+                MessageBox.Show("Invalid Cashier!")
+                BtnClear_Click(sender, e)
+                Return
+            Else
+                'sets the variables for password entry and stores cashier name
+                LblCashier.Text = c.Name
+                TxtCashier.Enabled = False
+                TxtPassword.Enabled = True
+                Register._cashier = c.Name
+                Register._cashNumber = c.CashNumber
+                Register._password = c.UserPassword
+                Return
+            End If
+        End If
+
+        If TxtPassword.Enabled = True Then
+            If TxtPassword.Text <> Register._password Then
+                MessageBox.Show("Invalid Password!")
+                BtnClear_Click(sender, e)
+            Else
+                'runs if the password entered matches the users password
+                MessageBox.Show("Whoohoo!")
+
+                'Hides the current form
+                Hide()
+
+                'launches main form
+                register.Show()
             End If
         End If
     End Sub
