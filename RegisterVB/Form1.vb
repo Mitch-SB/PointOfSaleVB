@@ -26,6 +26,9 @@ Public Class Register
         listViewGrocery.Columns.Add("Quantity", 70)
         listViewGrocery.Columns.Add("Sub Total", 70)
         listViewGrocery.Columns.Add("Tax", 45)
+
+        LblLockCashier.Text = _cashier.ToString()
+        CheckBoxLock.Checked = False
     End Sub
 
     Public Function TotalCount()
@@ -60,44 +63,65 @@ Public Class Register
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 And TxtCashOut.Text <> "" Then
-                TxtCashOut.Text += "0"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "0"
             End If
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "0"
-            End If
+            If TxtCashOut.Visible = True Then
 
+                If TxtCashOut.TextLength < 6 And TxtCashOut.Text <> "" Then
+                    TxtCashOut.Text += "0"
+                End If
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "0"
+                End If
+
+            End If
         End If
     End Sub
 
     Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "1"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "1"
             End If
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "1"
-            End If
+            If TxtCashOut.Visible = True Then
 
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "1"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "1"
+                End If
+            End If
         End If
     End Sub
 
     Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles Btn2.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "2"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "2"
             End If
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "2"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "2"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "2"
+                End If
             End If
         End If
     End Sub
@@ -105,15 +129,21 @@ Public Class Register
     Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles Btn3.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "3"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "3"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "3"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "3"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "3"
+                End If
             End If
         End If
     End Sub
@@ -121,15 +151,21 @@ Public Class Register
     Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles Btn4.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "4"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "4"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "4"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "4"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "4"
+                End If
             End If
         End If
     End Sub
@@ -137,15 +173,21 @@ Public Class Register
     Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles Btn5.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "5"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "5"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "5"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "5"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "5"
+                End If
             End If
         End If
     End Sub
@@ -153,15 +195,21 @@ Public Class Register
     Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles Btn6.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "6"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "6"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "6"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "6"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "6"
+                End If
             End If
         End If
     End Sub
@@ -169,15 +217,21 @@ Public Class Register
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "7"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "7"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "7"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "7"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "7"
+                End If
             End If
         End If
     End Sub
@@ -185,15 +239,21 @@ Public Class Register
     Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "8"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "8"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "8"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "8"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "8"
+                End If
             End If
         End If
     End Sub
@@ -201,15 +261,21 @@ Public Class Register
     Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
         'Insert button value to the txtInput string
         'Prioritize current visible text box
-        If TxtCashOut.Visible = True Then
-
-            If TxtCashOut.TextLength < 6 Then
-                TxtCashOut.Text += "9"
+        If groupBoxUnlock.Visible = True Then
+            If TxtUnlock.TextLength < 4 Then
+                TxtUnlock.Text += "9"
             End If
-
         Else
-            If txtInput.TextLength <= 11 Then
-                txtInput.Text += "9"
+            If TxtCashOut.Visible = True Then
+
+                If TxtCashOut.TextLength < 6 Then
+                    TxtCashOut.Text += "9"
+                End If
+
+            Else
+                If txtInput.TextLength <= 11 Then
+                    txtInput.Text += "9"
+                End If
             End If
         End If
     End Sub
@@ -218,24 +284,33 @@ Public Class Register
         'Clear the current text input
         txtInput.Clear()
         TxtCashOut.Clear()
+        TxtUnlock.Clear()
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         Dim i As String = txtInput.Text
         Dim o As String = TxtCashOut.Text
+        Dim u As String = TxtUnlock.Text
 
         Dim result As String
 
-        If TxtCashOut.Visible = True Then
-            If o.Length > 0 Then
-                result = o.Remove(o.Length - 1) 'delete the current text based on the length of the string minus one
-                TxtCashOut.Text = result 'reasign the new value to the textbox
+        If groupBoxUnlock.Visible = True Then
+            If u.Length > 0 Then
+                result = u.Remove(u.Length - 1) 'delete the current text based on the length of the string minus one
+                TxtUnlock.Text = result 'reasign the new value to the textbox
             End If
         Else
-            'Delete the preceding text on the txtInput textbox
-            If i.Length > 0 Then
-                result = i.Remove(i.Length - 1) 'delete the current text based on the length of the string minus one
-                txtInput.Text = result 'reasign the new value to the textbox
+            If TxtCashOut.Visible = True Then
+                If o.Length > 0 Then
+                    result = o.Remove(o.Length - 1) 'delete the current text based on the length of the string minus one
+                    TxtCashOut.Text = result 'reasign the new value to the textbox
+                End If
+            Else
+                'Delete the preceding text on the txtInput textbox
+                If i.Length > 0 Then
+                    result = i.Remove(i.Length - 1) 'delete the current text based on the length of the string minus one
+                    txtInput.Text = result 'reasign the new value to the textbox
+                End If
             End If
         End If
     End Sub
@@ -257,6 +332,48 @@ Public Class Register
     End Sub
 
     Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
+        'Unlock register
+        If groupBoxUnlock.Visible = True Then
+            If LblUnlock.Text = "Unlock" Then
+                If TxtUnlock.Text = _password.ToString() Then
+                    groupBoxLock.Visible = False
+                    groupBoxUnlock.Visible = False
+
+                    BtnCoupon.Enabled = True
+                    BtnVoid.Enabled = True
+                    BtnTender.Enabled = True
+                    BtnQty.Enabled = True
+                    BtnBack.Enabled = True
+                    BtnRegOptions.Enabled = True
+                    groupBoxPad.Enabled = True
+
+                    CheckBoxLock.Checked = False
+                    BtnLock.Text = "Lock"
+                    BtnClear_Click(sender, e)
+                    Return
+                Else
+                    MessageBox.Show("Incorrect Password!")
+                    BtnClear_Click(sender, e)
+                    Return
+                End If
+            ElseIf LblUnlock.Text = "Log Off" Then
+                If TxtUnlock.Text = _password.ToString() Then
+                    'Hide register
+                    Hide()
+
+                    'launch LogIn form
+                    Dim logIn As LogIn = New LogIn
+                    logIn.Show()
+                    Return
+                Else
+                    MessageBox.Show("Incorrect Password!")
+                    BtnClear_Click(sender, e)
+                    Return
+                End If
+            End If
+
+        End If
+
         'Establish connection
         Dim db As DataAccess = New DataAccess()
         Dim strInput = txtInput.Text
@@ -403,21 +520,14 @@ Public Class Register
     Private Sub BtnBack_Click(sender As Object, e As EventArgs) Handles BtnBack.Click
         'enables and disables the visibility option of certain buttons based on what needs to be displayed
         'Prioritizing the default view
-        'If BtnCash.Visible = True Then     ''''Remove current if statement and keep it simple?
-        '    BtnCash.Visible = False
-        '    BtnEFT.Visible = False
-        '    BtnPay.Visible = False
-        '    BtnLogOff.Visible = False
+        If LblUnlock.Text = "Log Off" Then
+            groupBoxUnlock.Visible = False
+        End If
+        If CheckBoxLock.Checked = True Then
+            groupBoxLock.Visible = True
+            BtnBack.Enabled = False
+        End If
 
-        '    BtnCoupon.Visible = True
-        '    BtnLock.Visible = True
-        '    BtnVoid.Visible = True
-        '    BtnRegOptions.Visible = True
-        '    BtnTender.Visible = True
-        '    BtnLock.Enabled = True
-
-        '    groupBoxTenderTotal.Visible = False
-        'End If
         BtnCash.Visible = False
         BtnEFT.Visible = False
         BtnPay.Visible = False
@@ -433,6 +543,7 @@ Public Class Register
         BtnLock.Enabled = True
 
         groupBoxTenderTotal.Visible = False
+
     End Sub
 
     Private Sub BtnCoupon_Click(sender As Object, e As EventArgs) Handles BtnCoupon.Click
@@ -491,6 +602,59 @@ Public Class Register
                 TotalCount()
 
             End If
+        End If
+    End Sub
+
+    Private Sub BtnLock_Click(sender As Object, e As EventArgs) Handles BtnLock.Click
+        'Lock current instance
+        If BtnLock.Text = "Lock" Then
+            'check lock checkbox to know if the form is locked
+            CheckBoxLock.Checked = True
+
+            groupBoxLock.Visible = True
+            groupBoxUnlock.Visible = False
+
+            BtnCoupon.Enabled = False
+            BtnVoid.Enabled = False
+            BtnTender.Enabled = False
+            BtnQty.Enabled = False
+            BtnBack.Enabled = False
+            groupBoxPad.Enabled = False
+            BtnRegOptions.Enabled = True
+
+            LblLockCashier.Text = _cashier.ToString()
+            BtnLock.Text = "Unlock"
+            BtnBack_Click(sender, e)
+        ElseIf BtnLock.Text = "Unlock" Then
+            BtnLock.Text = "Lock"
+            LblUnlock.Text = "Unlock"
+            groupBoxUnlock.Visible = True
+            groupBoxLock.Visible = False
+
+            BtnBack.Enabled = False
+            BtnRegOptions.Enabled = False
+            groupBoxPad.Enabled = True
+        End If
+    End Sub
+
+    Private Sub BtnRegOptions_Click(sender As Object, e As EventArgs) Handles BtnRegOptions.Click
+        BtnTender.Visible = False
+        BtnCoupon.Visible = False
+        BtnVoid.Visible = False
+        BtnLogOff.Visible = True
+        BtnBack.Enabled = True
+        BtnLock.Enabled = False
+    End Sub
+
+    Private Sub BtnLogOff_Click(sender As Object, e As EventArgs) Handles BtnLogOff.Click
+        If listViewGrocery.Items.Count < 1 Then
+            groupBoxUnlock.Visible = True
+            groupBoxLock.Visible = False
+
+            LblUnlock.Text = "Log Off"
+        Else
+            MessageBox.Show("Transaction in Progress!" & Environment.NewLine & "Unable to Log Out!")
+            BtnBack_Click(sender, e)
         End If
     End Sub
 End Class

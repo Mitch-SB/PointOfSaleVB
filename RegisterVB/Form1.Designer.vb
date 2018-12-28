@@ -64,9 +64,22 @@ Partial Class Register
         Me.label4 = New System.Windows.Forms.Label()
         Me.label3 = New System.Windows.Forms.Label()
         Me.label2 = New System.Windows.Forms.Label()
+        Me.groupBoxLock = New System.Windows.Forms.GroupBox()
+        Me.LblLockCashier = New System.Windows.Forms.Label()
+        Me.label7 = New System.Windows.Forms.Label()
+        Me.label6 = New System.Windows.Forms.Label()
+        Me.label10 = New System.Windows.Forms.Label()
+        Me.groupBoxUnlock = New System.Windows.Forms.GroupBox()
+        Me.TxtUnlock = New System.Windows.Forms.TextBox()
+        Me.label9 = New System.Windows.Forms.Label()
+        Me.label11 = New System.Windows.Forms.Label()
+        Me.LblUnlock = New System.Windows.Forms.Label()
+        Me.CheckBoxLock = New System.Windows.Forms.CheckBox()
         Me.groupBoxPad.SuspendLayout()
         Me.groupBoxMain.SuspendLayout()
         Me.groupBoxTenderTotal.SuspendLayout()
+        Me.groupBoxLock.SuspendLayout()
+        Me.groupBoxUnlock.SuspendLayout()
         Me.SuspendLayout()
         '
         'groupBoxPad
@@ -406,6 +419,7 @@ Partial Class Register
         Me.BtnEFT.TabIndex = 1
         Me.BtnEFT.Text = "EFT"
         Me.BtnEFT.UseVisualStyleBackColor = True
+        Me.BtnEFT.Visible = False
         '
         'groupBoxTenderTotal
         '
@@ -501,11 +515,138 @@ Partial Class Register
         Me.label2.TabIndex = 25
         Me.label2.Text = "Sub Total:"
         '
+        'groupBoxLock
+        '
+        Me.groupBoxLock.BackColor = System.Drawing.Color.Silver
+        Me.groupBoxLock.Controls.Add(Me.LblLockCashier)
+        Me.groupBoxLock.Controls.Add(Me.label7)
+        Me.groupBoxLock.Controls.Add(Me.label6)
+        Me.groupBoxLock.Controls.Add(Me.label10)
+        Me.groupBoxLock.Location = New System.Drawing.Point(12, 116)
+        Me.groupBoxLock.Name = "groupBoxLock"
+        Me.groupBoxLock.Size = New System.Drawing.Size(360, 187)
+        Me.groupBoxLock.TabIndex = 33
+        Me.groupBoxLock.TabStop = False
+        Me.groupBoxLock.Visible = False
+        '
+        'LblLockCashier
+        '
+        Me.LblLockCashier.AutoSize = True
+        Me.LblLockCashier.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblLockCashier.Location = New System.Drawing.Point(135, 75)
+        Me.LblLockCashier.Name = "LblLockCashier"
+        Me.LblLockCashier.Size = New System.Drawing.Size(0, 29)
+        Me.LblLockCashier.TabIndex = 31
+        '
+        'label7
+        '
+        Me.label7.AutoSize = True
+        Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label7.Location = New System.Drawing.Point(104, 121)
+        Me.label7.Name = "label7"
+        Me.label7.Size = New System.Drawing.Size(153, 29)
+        Me.label7.TabIndex = 30
+        Me.label7.Text = "**************"
+        '
+        'label6
+        '
+        Me.label6.AutoSize = True
+        Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label6.Location = New System.Drawing.Point(104, 45)
+        Me.label6.Name = "label6"
+        Me.label6.Size = New System.Drawing.Size(153, 29)
+        Me.label6.TabIndex = 29
+        Me.label6.Text = "**************"
+        '
+        'label10
+        '
+        Me.label10.AutoSize = True
+        Me.label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label10.Location = New System.Drawing.Point(132, 16)
+        Me.label10.Name = "label10"
+        Me.label10.Size = New System.Drawing.Size(92, 29)
+        Me.label10.TabIndex = 28
+        Me.label10.Text = "Locked"
+        '
+        'groupBoxUnlock
+        '
+        Me.groupBoxUnlock.BackColor = System.Drawing.Color.Silver
+        Me.groupBoxUnlock.Controls.Add(Me.TxtUnlock)
+        Me.groupBoxUnlock.Controls.Add(Me.label9)
+        Me.groupBoxUnlock.Controls.Add(Me.label11)
+        Me.groupBoxUnlock.Controls.Add(Me.LblUnlock)
+        Me.groupBoxUnlock.Location = New System.Drawing.Point(12, 116)
+        Me.groupBoxUnlock.Name = "groupBoxUnlock"
+        Me.groupBoxUnlock.Size = New System.Drawing.Size(360, 187)
+        Me.groupBoxUnlock.TabIndex = 33
+        Me.groupBoxUnlock.TabStop = False
+        Me.groupBoxUnlock.Visible = False
+        '
+        'TxtUnlock
+        '
+        Me.TxtUnlock.BackColor = System.Drawing.SystemColors.Window
+        Me.TxtUnlock.Enabled = False
+        Me.TxtUnlock.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtUnlock.Location = New System.Drawing.Point(107, 68)
+        Me.TxtUnlock.MaxLength = 10
+        Me.TxtUnlock.Name = "TxtUnlock"
+        Me.TxtUnlock.ReadOnly = True
+        Me.TxtUnlock.Size = New System.Drawing.Size(147, 35)
+        Me.TxtUnlock.TabIndex = 31
+        Me.TxtUnlock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TxtUnlock.UseSystemPasswordChar = True
+        '
+        'label9
+        '
+        Me.label9.AutoSize = True
+        Me.label9.BackColor = System.Drawing.Color.Transparent
+        Me.label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label9.Location = New System.Drawing.Point(102, 115)
+        Me.label9.Name = "label9"
+        Me.label9.Size = New System.Drawing.Size(153, 29)
+        Me.label9.TabIndex = 30
+        Me.label9.Text = "**************"
+        '
+        'label11
+        '
+        Me.label11.AutoSize = True
+        Me.label11.BackColor = System.Drawing.Color.Transparent
+        Me.label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label11.Location = New System.Drawing.Point(102, 39)
+        Me.label11.Name = "label11"
+        Me.label11.Size = New System.Drawing.Size(153, 29)
+        Me.label11.TabIndex = 29
+        Me.label11.Text = "**************"
+        '
+        'LblUnlock
+        '
+        Me.LblUnlock.AutoSize = True
+        Me.LblUnlock.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblUnlock.Location = New System.Drawing.Point(134, 16)
+        Me.LblUnlock.Name = "LblUnlock"
+        Me.LblUnlock.Size = New System.Drawing.Size(87, 29)
+        Me.LblUnlock.TabIndex = 28
+        Me.LblUnlock.Text = "Unlock"
+        '
+        'CheckBoxLock
+        '
+        Me.CheckBoxLock.AutoSize = True
+        Me.CheckBoxLock.Location = New System.Drawing.Point(17, 452)
+        Me.CheckBoxLock.Name = "CheckBoxLock"
+        Me.CheckBoxLock.Size = New System.Drawing.Size(113, 17)
+        Me.CheckBoxLock.TabIndex = 34
+        Me.CheckBoxLock.Text = "Locked/Unlocked"
+        Me.CheckBoxLock.UseVisualStyleBackColor = True
+        Me.CheckBoxLock.Visible = False
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 511)
+        Me.Controls.Add(Me.CheckBoxLock)
+        Me.Controls.Add(Me.groupBoxUnlock)
+        Me.Controls.Add(Me.groupBoxLock)
         Me.Controls.Add(Me.groupBoxTenderTotal)
         Me.Controls.Add(Me.groupBoxMain)
         Me.Controls.Add(Me.listViewGrocery)
@@ -522,6 +663,10 @@ Partial Class Register
         Me.groupBoxMain.PerformLayout()
         Me.groupBoxTenderTotal.ResumeLayout(False)
         Me.groupBoxTenderTotal.PerformLayout()
+        Me.groupBoxLock.ResumeLayout(False)
+        Me.groupBoxLock.PerformLayout()
+        Me.groupBoxUnlock.ResumeLayout(False)
+        Me.groupBoxUnlock.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -569,4 +714,15 @@ Partial Class Register
     Private WithEvents label4 As Label
     Private WithEvents label3 As Label
     Private WithEvents label2 As Label
+    Private WithEvents groupBoxLock As GroupBox
+    Private WithEvents LblLockCashier As Label
+    Private WithEvents label7 As Label
+    Private WithEvents label6 As Label
+    Private WithEvents label10 As Label
+    Private WithEvents groupBoxUnlock As GroupBox
+    Private WithEvents TxtUnlock As TextBox
+    Private WithEvents label9 As Label
+    Private WithEvents label11 As Label
+    Private WithEvents LblUnlock As Label
+    Friend WithEvents CheckBoxLock As CheckBox
 End Class

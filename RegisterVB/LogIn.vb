@@ -185,7 +185,7 @@
         End If
 
         If TxtPassword.Enabled = True Then
-            If TxtPassword.Text <> Register._password Then
+            If TxtPassword.Text <> Register._password.ToString() Then
                 MessageBox.Show("Invalid Password!")
                 BtnClear_Click(sender, e)
             Else
