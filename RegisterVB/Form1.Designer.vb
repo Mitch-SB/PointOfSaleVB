@@ -75,6 +75,8 @@ Partial Class Register
         Me.label11 = New System.Windows.Forms.Label()
         Me.LblUnlock = New System.Windows.Forms.Label()
         Me.CheckBoxLock = New System.Windows.Forms.CheckBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.LblCash = New System.Windows.Forms.Label()
         Me.groupBoxPad.SuspendLayout()
         Me.groupBoxMain.SuspendLayout()
         Me.groupBoxTenderTotal.SuspendLayout()
@@ -286,7 +288,6 @@ Partial Class Register
         'groupBoxMain
         '
         Me.groupBoxMain.Controls.Add(Me.BtnLogOff)
-        Me.groupBoxMain.Controls.Add(Me.BtnEnterCoupon)
         Me.groupBoxMain.Controls.Add(Me.BtnPay)
         Me.groupBoxMain.Controls.Add(Me.TxtCashOut)
         Me.groupBoxMain.Controls.Add(Me.BtnBack)
@@ -297,6 +298,7 @@ Partial Class Register
         Me.groupBoxMain.Controls.Add(Me.BtnRegOptions)
         Me.groupBoxMain.Controls.Add(Me.BtnTender)
         Me.groupBoxMain.Controls.Add(Me.BtnEFT)
+        Me.groupBoxMain.Controls.Add(Me.BtnEnterCoupon)
         Me.groupBoxMain.Location = New System.Drawing.Point(378, 12)
         Me.groupBoxMain.Name = "groupBoxMain"
         Me.groupBoxMain.Size = New System.Drawing.Size(281, 184)
@@ -413,6 +415,7 @@ Partial Class Register
         '
         'BtnEFT
         '
+        Me.BtnEFT.Enabled = False
         Me.BtnEFT.Location = New System.Drawing.Point(190, 16)
         Me.BtnEFT.Name = "BtnEFT"
         Me.BtnEFT.Size = New System.Drawing.Size(85, 50)
@@ -424,6 +427,8 @@ Partial Class Register
         'groupBoxTenderTotal
         '
         Me.groupBoxTenderTotal.BackColor = System.Drawing.Color.Silver
+        Me.groupBoxTenderTotal.Controls.Add(Me.LblCash)
+        Me.groupBoxTenderTotal.Controls.Add(Me.Label8)
         Me.groupBoxTenderTotal.Controls.Add(Me.lblTotal)
         Me.groupBoxTenderTotal.Controls.Add(Me.lblTax)
         Me.groupBoxTenderTotal.Controls.Add(Me.lblSavings)
@@ -639,15 +644,34 @@ Partial Class Register
         Me.CheckBoxLock.UseVisualStyleBackColor = True
         Me.CheckBoxLock.Visible = False
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(6, 103)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(74, 29)
+        Me.Label8.TabIndex = 33
+        Me.Label8.Text = "Cash:"
+        '
+        'LblCash
+        '
+        Me.LblCash.AutoSize = True
+        Me.LblCash.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblCash.Location = New System.Drawing.Point(135, 103)
+        Me.LblCash.Name = "LblCash"
+        Me.LblCash.Size = New System.Drawing.Size(0, 29)
+        Me.LblCash.TabIndex = 34
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(684, 511)
+        Me.Controls.Add(Me.groupBoxTenderTotal)
         Me.Controls.Add(Me.CheckBoxLock)
         Me.Controls.Add(Me.groupBoxUnlock)
         Me.Controls.Add(Me.groupBoxLock)
-        Me.Controls.Add(Me.groupBoxTenderTotal)
         Me.Controls.Add(Me.groupBoxMain)
         Me.Controls.Add(Me.listViewGrocery)
         Me.Controls.Add(Me.label1)
@@ -725,4 +749,6 @@ Partial Class Register
     Private WithEvents label11 As Label
     Private WithEvents LblUnlock As Label
     Friend WithEvents CheckBoxLock As CheckBox
+    Private WithEvents LblCash As Label
+    Private WithEvents Label8 As Label
 End Class

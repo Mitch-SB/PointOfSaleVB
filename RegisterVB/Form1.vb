@@ -8,6 +8,7 @@ Public Class Register
     Dim subTotal As Decimal = 0.00
     Dim qty As Integer = 1
     Dim coupon As Decimal = 0.00
+    Dim cash As Decimal = 0.00
     Dim taxTotal As Decimal = 0.00
 
     Public Shared _cashier As String
@@ -497,7 +498,19 @@ Public Class Register
                 End If
             Next
 
+            'Calculates the amount of cash in the transaction
+            cash = 0.00 'reset to zero for proper calculation
+
+            For i = 0 To listViewGrocery.Items.Count Step 1
+                If i < listViewGrocery.Items.Count Then
+                    If listViewGrocery.Items(i).SubItems(0).Text = "Cash" Then
+                        cash += listViewGrocery.Items(i).SubItems(3).Text
+                    End If
+                End If
+            Next
+
             lblSavings.Text = "$" & coupon
+            LblCash.Text = "$" & cash
             lblTax.Text = "$" + taxTotal.ToString("0.00")
 
             'Calculates the subtotal of the current transaction
@@ -505,7 +518,7 @@ Public Class Register
 
             For i = 0 To listViewGrocery.Items.Count Step 1
                 If i < listViewGrocery.Items.Count Then
-                    If listViewGrocery.Items(i).SubItems(0).Text <> "Coupon" Then
+                    If listViewGrocery.Items(i).SubItems(0).Text <> "Coupon" And listViewGrocery.Items(i).SubItems(0).Text <> "Cash" Then
                         subTotal += listViewGrocery.Items(i).SubItems(1).Text * listViewGrocery.Items(i).SubItems(2).Text
                     End If
                 End If
@@ -655,6 +668,67 @@ Public Class Register
         Else
             MessageBox.Show("Transaction in Progress!" & Environment.NewLine & "Unable to Log Out!")
             BtnBack_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub BtnCash_Click(sender As Object, e As EventArgs) Handles BtnCash.Click
+        'enables and disables the visibility option of certain buttons based on what needs to be displayed
+        BtnCoupon.Visible = False
+        BtnLock.Visible = False
+        BtnVoid.Visible = False
+        BtnRegOptions.Visible = False
+        BtnTender.Visible = False
+        BtnCash.Visible = False
+        BtnEFT.Visible = False
+
+        BtnPay.Visible = True
+        TxtCashOut.Visible = True
+    End Sub
+
+    Private Sub BtnPay_Click(sender As Object, e As EventArgs) Handles BtnPay.Click
+        'New array for cash entry
+        Dim arr(5) As String
+        Dim itm As ListViewItem
+
+        'New String Builder for cash entry
+        Dim cashBuilder As StringBuilder = New StringBuilder(TxtCashOut.Text)
+
+        'capture text as string to use the 'contain' method
+        Dim cashStr As String = TxtCashOut.Text
+
+        arr(0) = "Cash"
+        arr(1) = ""
+        arr(2) = ""
+        arr(4) = ""
+
+        'allows insertion of a decimal point depending on how many characters are inside the string
+        If cashStr.Contains(".") = False Then
+            If TxtCashOut.TextLength < 3 Then
+                If TxtCashOut.TextLength = 2 Then
+                    cashBuilder.Insert((TxtCashOut.TextLength - TxtCashOut.TextLength), "0.")
+                    TxtCashOut.Text = cashBuilder.ToString()
+                Else
+                    cashBuilder.Insert((TxtCashOut.TextLength - TxtCashOut.TextLength), "0.0")
+                    TxtCashOut.Text = cashBuilder.ToString()
+                End If
+            Else
+                cashBuilder.Insert((TxtCashOut.TextLength - 2), ".")
+                TxtCashOut.Text = cashBuilder.ToString()
+            End If
+        Else
+            If TxtCashOut.Text < 0 Then
+                TxtCashOut.Text = ""
+            Else
+                arr(3) = "-" & TxtCashOut.Text
+
+                itm = New ListViewItem(arr)
+                listViewGrocery.Items.Add(itm)
+
+                BtnClear_Click(sender, e)
+                BtnBack_Click(sender, e)
+                TotalCount()
+
+            End If
         End If
     End Sub
 End Class
