@@ -77,6 +77,7 @@ Partial Class Register
         Me.CheckBoxLock = New System.Windows.Forms.CheckBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.LblCash = New System.Windows.Forms.Label()
+        Me.rtxtReceipt = New RegisterVB.RichTextBoxPrintCtrl.RichTextBoxPrintCtrl()
         Me.groupBoxPad.SuspendLayout()
         Me.groupBoxMain.SuspendLayout()
         Me.groupBoxTenderTotal.SuspendLayout()
@@ -663,6 +664,16 @@ Partial Class Register
         Me.LblCash.Size = New System.Drawing.Size(0, 29)
         Me.LblCash.TabIndex = 34
         '
+        'rtxtReceipt
+        '
+        Me.rtxtReceipt.Location = New System.Drawing.Point(12, 12)
+        Me.rtxtReceipt.Name = "rtxtReceipt"
+        Me.rtxtReceipt.ReadOnly = True
+        Me.rtxtReceipt.Size = New System.Drawing.Size(360, 393)
+        Me.rtxtReceipt.TabIndex = 35
+        Me.rtxtReceipt.Text = ""
+        Me.rtxtReceipt.Visible = False
+        '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -679,6 +690,7 @@ Partial Class Register
         Me.Controls.Add(Me.lblQty)
         Me.Controls.Add(Me.txtInput)
         Me.Controls.Add(Me.groupBoxPad)
+        Me.Controls.Add(Me.rtxtReceipt)
         Me.Name = "Register"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Register"
@@ -751,4 +763,5 @@ Partial Class Register
     Friend WithEvents CheckBoxLock As CheckBox
     Private WithEvents LblCash As Label
     Private WithEvents Label8 As Label
+    Friend WithEvents rtxtReceipt As RichTextBoxPrintCtrl.RichTextBoxPrintCtrl
 End Class

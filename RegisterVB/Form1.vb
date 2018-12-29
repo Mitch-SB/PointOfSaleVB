@@ -557,6 +557,10 @@ Public Class Register
 
         groupBoxTenderTotal.Visible = False
 
+        TxtCashOut.Clear()
+        txtInput.Clear()
+        TxtUnlock.Clear()
+
     End Sub
 
     Private Sub BtnCoupon_Click(sender As Object, e As EventArgs) Handles BtnCoupon.Click
@@ -693,6 +697,20 @@ Public Class Register
         'New String Builder for cash entry
         Dim cashBuilder As StringBuilder = New StringBuilder(TxtCashOut.Text)
 
+        'String builder for my rich text box
+        Dim rtfTable As StringBuilder = New StringBuilder()
+
+        'Header for my receipt
+        Dim header As String = "Mitch's Grocery & Mercantile Supply" & Environment.NewLine & "1234 Best Damn Groceries Rd" &
+            Environment.NewLine & "Vieques, PR 00765" & Environment.NewLine & "407-555-5555" &
+            Environment.NewLine & Environment.NewLine
+        'Footer for my receipt
+        Dim footer As String = Environment.NewLine & "Thank You Very Much For Shopping With Us" & Environment.NewLine &
+                    "Your Cashier was: " & _cashier & Environment.NewLine &
+                    "We Hope To See You Again!" & Environment.NewLine & Environment.NewLine & "Mitch's Grocery & Mercantile Supply"
+        'Tender time for my receipt
+        Dim tenderTime As String = Environment.NewLine & DateTime.Now() + Environment.NewLine
+
         'capture text as string to use the 'contain' method
         Dim cashStr As String = TxtCashOut.Text
 
@@ -716,19 +734,145 @@ Public Class Register
                 TxtCashOut.Text = cashBuilder.ToString()
             End If
         Else
-            If TxtCashOut.Text < 0 Then
-                TxtCashOut.Text = ""
+            'array set up to input a cash entry into the ListView if the amount entered is less than the total amount
+            If TxtCashOut.Text < total Then
+                If TxtCashOut.Text <= 0 Then
+                    TxtCashOut.Text = ""
+                Else
+                    arr(3) = "-" & TxtCashOut.Text
+
+                    itm = New ListViewItem(arr)
+                    listViewGrocery.Items.Add(itm)
+
+                    BtnClear_Click(sender, e)
+                    BtnBack_Click(sender, e)
+                    TotalCount()
+
+                End If
             Else
-                arr(3) = "-" & TxtCashOut.Text
+                'Runs if the amount entered is greater than the total
+                'Renders everything back into the default view And reveals the richtextbox receipt
+                If TxtCashOut.Text > total Then
+                    BtnBack_Click(sender, e)
 
-                itm = New ListViewItem(arr)
-                listViewGrocery.Items.Add(itm)
+                    rtxtReceipt.Visible = True
 
-                BtnClear_Click(sender, e)
-                BtnBack_Click(sender, e)
-                TotalCount()
+                    'Custom font style and text alignment
+                    rtxtReceipt.SelectionFont = New Font(rtxtReceipt.Font, FontStyle.Bold)
+                    rtxtReceipt.SelectionAlignment = HorizontalAlignment.Center
 
+                    'Grabs selection and applies it
+                    '******************************** Maybe concatenate with mess of string builder**************
+                    rtxtReceipt.SelectedText = header
+
+                    'Appends each item inside the ListView into my table string builder
+                    rtfTable.Append("{\rtf1 ")
+                    For i = 0 To listViewGrocery.Items.Count Step 1
+                        If i < listViewGrocery.Items.Count Then
+                            rtfTable.Append("\trowd")
+                            rtfTable.Append("\cellx1500" & listViewGrocery.Items(i).SubItems(0).Text)
+                            rtfTable.Append("\intbl\cell")
+                            rtfTable.Append("\cellx3000" & "")
+                            rtfTable.Append("\intbl\cell")
+                            rtfTable.Append("\cellx4500" & "x" & listViewGrocery.Items(i).SubItems(2).Text)
+                            rtfTable.Append("\intbl\cell")
+                            rtfTable.Append("\cellx6000" & "$" & listViewGrocery.Items(i).SubItems(3).Text)
+                            rtfTable.Append("\intbl\cell")
+                            rtfTable.Append("\cellx7500" & listViewGrocery.Items(i).SubItems(4).Text)
+                            rtfTable.Append("\intbl\cell\row")
+                        End If
+                    Next
+                    'Appends the order total, Sales Tax, Grand Total, Cash Payment, Change, and savings into the table
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Order Total")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "$" & (total - taxTotal).ToString("#.##"))
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Sales Tax")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & lblTax.Text)
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Grand Total")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "$" & total.ToString("#.##"))
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Cash")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "Payment")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "$" & TxtCashOut.Text)
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Change")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "$" & (total - Decimal.Parse(TxtCashOut.Text)).ToString("#.##"))
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\trowd")
+                    rtfTable.Append("\cellx1500" & "Savings")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & "")
+                    rtfTable.Append("\intbl\cell")
+                    rtfTable.Append("\cellx1500" & lblSavings.Text)
+                    rtfTable.Append("\intbl\cell\row")
+
+                    rtfTable.Append("\pard")
+                    rtfTable.Append("}")
+
+                    'trims any trailing occurance of the specified character
+                    Dim rtf1 As String = rtxtReceipt.Rtf.Trim().TrimEnd("}")
+                    Dim rtf2 As String = rtfTable.ToString()
+
+                    'Place all text entries in a specified order into the rich text box
+                    rtxtReceipt.Select(header.ToString().Count(), 0)
+                    rtxtReceipt.SelectedRtf = rtf2
+
+                    'Append DateTime and Footer
+                    rtxtReceipt.Text += tenderTime & footer
+
+                    rtxtReceipt.BringToFront()
+
+                    label1.Text = "Change"
+                    TxtTotal.Text = (total - Decimal.Parse(TxtCashOut.Text)).ToString("#.##")
+
+                End If
             End If
         End If
+
     End Sub
 End Class
