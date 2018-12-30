@@ -32,7 +32,7 @@ Public Class Register
         CheckBoxLock.Checked = False
     End Sub
 
-    Public Function TotalCount()
+    Public Sub TotalCount()
         total = 0
 
         'adds up the value on the 4th column index for each item inside the ListView
@@ -44,10 +44,10 @@ Public Class Register
 
         Next
         TxtTotal.Text = "$" + total.ToString()
-        Return total
-    End Function
 
-    Public Function TaxCount()
+    End Sub
+
+    Public Sub TaxCount()
         taxTotal = 0
 
         'Multiplies the value on the 4th column index with my tax constant if the value for Tax on the 5th column equals "Y"
@@ -58,8 +58,54 @@ Public Class Register
                 End If
             End If
         Next
-        Return taxTotal
-    End Function
+    End Sub
+
+    Public Sub ResetForm()
+        qty = 1
+        total = 0
+        subTotal = 0
+
+        taxTotal = 0
+        coupon = 0
+
+        label1.Text = "Start New Order"
+        TxtTotal.Clear()
+
+        rtxtReceipt.Clear()
+        rtxtReceipt.Visible = False
+
+        'Empties out the ListView control
+        For Each eachItem As ListViewItem In listViewGrocery.Items
+            listViewGrocery.Items.Remove(eachItem)
+        Next
+
+
+    End Sub
+
+    Public Sub SaveReceipt()
+        'Checks to see if my richTextBox control has value
+        'If it does, it saves it to a specified path
+        If rtxtReceipt.Text <> String.Empty Then
+            'Set directory
+            Dim dir As String = "C:\Users\Jack of Dunces\Source\Repos\Mitch-SB\RegisterVB\ReceiptHistory\" & DateTime.Today.ToString("dd_MMM_yy") 'add unique time format
+
+            Dim path As String = "C:\Users\Jack of Dunces\Source\Repos\Mitch-SB\RegisterVB\ReceiptHistory\" & DateTime.Today.ToString("dd_MMM_yy") & "\\" & DateTime.Now.ToString("HH.mm.ss") & ".rtxt"
+
+            If Not IO.Directory.Exists(dir) Then
+                IO.Directory.CreateDirectory(dir) 'creates path if it does not exist
+            End If
+
+            If Not IO.File.Exists(path) Then
+                Using IO.File.Create(path)
+
+                End Using
+                rtxtReceipt.SaveFile(path, RichTextBoxStreamType.RichText) 'saves richtextbox to file path
+            End If
+        Else
+            MessageBox.Show("ERROR - Failed To Save Receipt!")
+        End If
+
+    End Sub
 
     Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
         'Insert button value to the txtInput string
@@ -753,8 +799,6 @@ Public Class Register
                 'Runs if the amount entered is greater than the total
                 'Renders everything back into the default view And reveals the richtextbox receipt
                 If TxtCashOut.Text > total Then
-                    BtnBack_Click(sender, e)
-
                     rtxtReceipt.Visible = True
 
                     'Custom font style and text alignment
@@ -870,9 +914,15 @@ Public Class Register
                     label1.Text = "Change"
                     TxtTotal.Text = (total - Decimal.Parse(TxtCashOut.Text)).ToString("#.##")
 
+                    BtnBack_Click(sender, e)
+                    SaveReceipt()
+                    ResetForm()
+
                 End If
             End If
         End If
+
+
 
     End Sub
 End Class
